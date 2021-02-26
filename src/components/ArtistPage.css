@@ -1,0 +1,22 @@
+img {
+    height: 400px;
+    width: 400px;
+}
+
+#individual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#all {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+}
+
+#loading {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

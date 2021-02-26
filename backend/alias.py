@@ -1,0 +1,1 @@
+releventInfo = ['\xa9nam', '\xa9alb', '\xa9ART', 'aART', '\xa9wrt', '\xa9day', '\xa9cmt', '\xa9gen', '\xa9lyr', 'cprt', 'trkn', 'disk', 'rtng']
