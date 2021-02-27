@@ -34,19 +34,19 @@ const App = () => {
     const albums = matchArtist ? retSongs.filter(album => (album.aART === matchArtist.params.art)).map(album => album['\xa9alb']) : null
 
     const matchSong = useRouteMatch('/album/:alb')
-    const songs = matchSong ? retSongs.filter(album => (album['\xa9alb'] === matchSong.params.alb)) : null
+    const songs = matchSong ? retSongs.filter(album => (album['\xa9alb'].includes(matchSong.params.alb))) : null
     
     return (
         <>
             <Switch>
                 <Route path = "/album/:alb">
-                    <SongsPage songs = {songs}/>
+                    <SongsPage songs = {songs} />
                 </Route>
                 <Route path = "/groupArtists">
                     <ArtistPage artists = {new Set(retSongs.map(song => song.aART).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())))}/>
                 </Route>
                 <Route path = "/artist/:art">
-                    <AlbumsPage albums = {new Set(albums)}/>
+                    <AlbumsPage albums = {new Set(albums)} artist = {matchArtist}/>
                 </Route>
                 <Route path = "/">
                     {(uploadProgress === 0) ? <FileForm changeHandler = {fileChange} submitHandler = {formSubmit}/> : <UploadProgress percent = {uploadProgress}/>} 
