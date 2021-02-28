@@ -1,19 +1,20 @@
+import './SongsPage.css'
+
 const SongsPage = ({songs}) => {
     songs.sort((a, b) => {
         return a.trkn[0] - b.trkn[0]
     })
+    {console.log(songs)}
     return (
-        songs.map(song => <div> {song.aART}
-                                {song.cprt}
-                                {song.disk[0] + '/' + song.disk[1]}
-                                {song.rtng === 0 ? 'not explicit' : 'explicit'}
-                                {song.trkn[0] + '/' + song.trkn[1]}
-                                {song['\xa9ART']}
-                                {song['\xa9alb']}
-                                {song['\xa9day']}
-                                {song['\xa9gen']}
-                                {song['\xa9nam']}        
-                          </div>)
+        <div id = "songsDiv">
+        {songs.map(song =>  <div> {song['\xa9ART']}
+                                    <br></br>
+                                 {song['\xa9alb']}
+                                 <br></br>
+                                 {song['\xa9nam']}        
+                            </div>)}
+        </div>
+
     )
 }
 

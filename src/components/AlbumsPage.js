@@ -4,7 +4,7 @@ import songServices from '../services/services.js'
 import axios from 'axios'
 
 const AlbumsPage = ({albums, artist}) => {
-    let albumsArray = [...albums]
+    let albumsArray = [...albums].map(item => item.toLowerCase())
     const [albumImage, setalbumImage] = useState([])
     useEffect(() => {
         albumsArray = albumsArray.map(item => {
@@ -36,12 +36,13 @@ const AlbumsPage = ({albums, artist}) => {
                     }
                 })
                 .then(res => res.data.items)
-                .then(res => setalbumImage(res.filter(item => albumsArray.includes(item.name))))
+                .then(res => setalbumImage(res.filter(item => albumsArray.includes(item.name.toLowerCase()))))
             })
         })
     }, [])
+    console.log(albumImage)
     return (
-        albumImage.length == albumsArray.length ? 
+        albumImage.length >= albumsArray.length ? 
         <div id = "all">
             {(albumImage.map(album => 
                 <div id = "individual">

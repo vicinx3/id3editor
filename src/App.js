@@ -34,7 +34,7 @@ const App = () => {
     const albums = matchArtist ? retSongs.filter(album => (album.aART === matchArtist.params.art)).map(album => album['\xa9alb']) : null
 
     const matchSong = useRouteMatch('/album/:alb')
-    const songs = matchSong ? retSongs.filter(album => (album['\xa9alb'].includes(matchSong.params.alb))) : null
+    const songs = matchSong ? retSongs.filter(album => (album['\xa9alb'].toLowerCase().includes(matchSong.params.alb.toLowerCase()))) : null
     
     return (
         <>
